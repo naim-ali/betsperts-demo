@@ -1,0 +1,16 @@
+{
+	"description" : "The CodeIgniter framework",
+	"name" : "codeigniter/framework",
+	"license": "MIT",
+	"require": {
+		"njasm/soundcloud": "dev-master",
+		"authy/php": "2.*",
+		"twilio/sdk": "^5.15",
+		"stripe/stripe-php": "^6.29",
+		"phpmailer/phpmailer": "^6.0",
+		"athlon1600/youtube-downloader": "^2.1"
+	},
+	"require-dev": {
+		"mikey179/vfsstream": "1.1.*"
+	}
+}

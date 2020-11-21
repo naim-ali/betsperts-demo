@@ -1,0 +1,13 @@
+Betsperts/node_modules/**/*
+Betsperts/.expo/*
+Betsperts/npm-debug.*
+Betsperts/*.jks
+Betsperts/*.p8
+Betsperts/*.p12
+Betsperts/*.key
+Betsperts/*.mobileprovision
+Betsperts/*.orig.*
+Betsperts/web-build/
+
+# macOS
+.DS_Store

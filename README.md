@@ -3,13 +3,13 @@ Authentication demo
 
 # Betsperts React native onboarding clone
 featuring: 
-  Splash screen\n
-  Home Carousel
-  Navigation
-  form field validation
-  image selection
-  country/state selection
-  posting data from signup
+  Splash screen<br/>
+  Home Carousel<br/>
+  Navigation<br/>
+  form field validation<br/>
+  image selection<br/>
+  country/state selection<br/>
+  posting data from signup<br/>
   retrieving data from signin
   
 # Betsperts Codeigniter clone

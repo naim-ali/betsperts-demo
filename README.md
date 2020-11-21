@@ -3,7 +3,7 @@ Authentication demo
 
 # Betsperts React native onboarding clone
 featuring: 
-  Splash screen
+  Splash screen\n
   Home Carousel
   Navigation
   form field validation

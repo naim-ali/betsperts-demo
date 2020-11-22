@@ -43,42 +43,6 @@ const { SlideInMenu } = renderers;
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 
-const Countries = ({setCountry}) => {
-
-    const [countries, setCountries] = useState();
-        useEffect(() => {
-        fetch('http://172.20.10.4:8888/index.php/api/Private_api/countries')
-            .then((response) => response.json())
-            .then((data) => setCountries(data.results))
-            .catch((error) => console.log(error.message));
-        }, []);
-        return countries && countries.map(c => {
-            return(
-                <MenuOption style={{height: 50}} key={c.code} text={c.name}
-                    onSelect={() => setCountry({code: c.code, name: c.name})
-                }/>
-            )
-        }) || null
-}
-
-
-const States = ({countryCode, setState}) => {
-    const [states, setStates] = useState();
-        useEffect(() => {
-        fetch('http://172.20.10.4:8888/index.php/api/Private_api/states/code/'+countryCode)
-            .then((response) => response.json())
-            .then((data) => {setStates(data.results), console.log(data, "is retire")})
-            .catch((error) => console.log(error.message));
-        }, []);
-        return states && states.map(s => {
-            return(
-                <MenuOption key={s.objectId} text={s.Subdivision_Name}
-                    onSelect={() => setState(s.Subdivision_Name)
-                }/>
-            )
-        }) || null;
-}
-
 
 function Logo(){
     return (
@@ -100,7 +64,7 @@ function PageTitle(){
       );
 }
 
-function GoBack({ navigation }){
+function GoBack({ navigation }:any){
     return (
         <View style={styles.back}>
           <TouchableOpacity style={styles.button} onPress={()=>{navigation.pop()}}>
@@ -110,7 +74,7 @@ function GoBack({ navigation }){
       );
 }
 
-function SubmitBtn({submit}){
+function SubmitBtn({submit}:any){
     return (
         <View style={{position:"relative", left: viewportWidth/2 - 665/4, marginVertical:50 }}>
           <TouchableOpacity style={styles.button} onPress={()=>{submit()}}>
@@ -120,10 +84,10 @@ function SubmitBtn({submit}){
       );
 }
 
-function RouteLogin({navigation}){
+function RouteLogin({navigation}:any){
     return (
         <View style={{position:"relative", left: viewportWidth/2 - 510/4, marginVertical:50 }}>
-          <TouchableOpacity style={styles.button} onPress={()=>{submit()}}>
+          <TouchableOpacity style={styles.button} onPress={()=>{}}>
             <Image style={{resizeMode:"contain", height:33/2, width:510/2}} source={images.signupRoute}/>
           </TouchableOpacity>
         </View>
@@ -167,14 +131,14 @@ function ImagePickerExample() {
     );
   }
 
-export default ({ navigation }) => {
+export default ({ navigation }:any) => {
   const { handleSubmit, register, setValue, errors } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
       console.log("from source", data);
-      console.log('http://172.20.10.4:8888/index.php/api/Private_api/signin/credential/'+data.name+'/password/'+data.password);
+      console.log('http://52.38.194.200/index.php/api/Private_api/signin/credential/'+data.name+'/password/'+data.password);
       
-    fetch('http://172.20.10.4:8888/index.php/api/Private_api/signin/credential/'+data.name+'/password/'+data.password)
+    fetch('http://52.38.194.200/index.php/api/Private_api/signin/credential/'+data.name+'/password/'+data.password)
             .then((response) => response.json())
             .then((data) => {
                 if(data && data.results[0]){

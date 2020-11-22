@@ -14,7 +14,7 @@ class User_model extends CI_Model
    public function create_user($username, $email, $encrypted, $country, $state)
    {
 	   
-	   $sql = "INSERT INTO user (username, email, password, country, state)
+	   $sql = "INSERT INTO User (username, email, password, country, state)
 	           VALUES(:username, :email, :password, :country, :state)";
 					
 	   $stmt = $this->db->conn_id->prepare($sql);
@@ -38,8 +38,9 @@ class User_model extends CI_Model
 
     public function fetch_user($cred, $password)
     {
+		
     	$sql = "SELECT u.*
-				FROM user AS u
+				FROM User AS u
 				WHERE u.username = :username OR u.email = :email AND u.password = :password";
         $stmt = $this->db->conn_id->prepare($sql);
         $stmt->execute(array('username' => $cred, 'email' => $cred, 'password' => $password));

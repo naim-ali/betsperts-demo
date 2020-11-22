@@ -43,11 +43,11 @@ const { SlideInMenu } = renderers;
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 
-const Countries = ({setCountry}) => {
+const Countries = ({setCountry}:any) => {
 
     const [countries, setCountries] = useState();
         useEffect(() => {
-        fetch('http://172.20.10.4:8888/index.php/api/Private_api/countries')
+        fetch('http://52.38.194.200/index.php/api/Private_api/countries')
             .then((response) => response.json())
             .then((data) => setCountries(data.results))
             .catch((error) => console.log(error.message));
@@ -62,10 +62,10 @@ const Countries = ({setCountry}) => {
 }
 
 
-const States = ({countryCode, setState}) => {
+const States = ({countryCode, setState}:any) => {
     const [states, setStates] = useState();
         useEffect(() => {
-        fetch('http://172.20.10.4:8888/index.php/api/Private_api/states/code/'+countryCode)
+        fetch('http://52.38.194.200/index.php/api/Private_api/states/code/'+countryCode)
             .then((response) => response.json())
             .then((data) => {setStates(data.results), console.log(data, "is retire")})
             .catch((error) => console.log(error.message));
@@ -100,7 +100,7 @@ function PageTitle(){
       );
 }
 
-function GoBack({ navigation }){
+function GoBack({ navigation }:any){
     return (
         <View style={styles.back}>
           <TouchableOpacity style={styles.button} onPress={()=>{navigation.pop()}}>
@@ -110,7 +110,7 @@ function GoBack({ navigation }){
       );
 }
 
-function SubmitBtn({submit}){
+function SubmitBtn({submit}:any){
     return (
         <View style={{position:"relative", left: viewportWidth/2 - 665/4, marginVertical:50 }}>
           <TouchableOpacity style={styles.button} onPress={()=>{submit()}}>
@@ -120,10 +120,10 @@ function SubmitBtn({submit}){
       );
 }
 
-function RouteLogin({navigation}){
+function RouteLogin({navigation}:any){
     return (
         <View style={{position:"relative", left: viewportWidth/2 - 510/4, marginVertical:50 }}>
-          <TouchableOpacity style={styles.button} onPress={()=>{submit()}}>
+          <TouchableOpacity style={styles.button} onPress={()=>{}}>
             <Image style={{resizeMode:"contain", height:33/2, width:510/2}} source={images.signinRoute}/>
           </TouchableOpacity>
         </View>
@@ -132,7 +132,7 @@ function RouteLogin({navigation}){
 
 
 
-function ImagePickerExample({image, setImage}) {
+function ImagePickerExample({image, setImage}:any) {
     
   
     React.useEffect(() => {
@@ -172,7 +172,7 @@ function ImagePickerExample({image, setImage}) {
     );
   }
 
-export default ({ navigation }) => {
+export default ({ navigation }:any) => {
   const { handleSubmit, register, setValue, errors } = useForm<FormData>();
   const [country, setCountry] = useState();
   const [state, setState] = useState();
@@ -194,7 +194,7 @@ export default ({ navigation }) => {
 
     const payload = createFormData(image, formData);
 
-    postData('http://172.20.10.4:8888/index.php/api/Private_api/signup', 
+    postData('http://52.38.194.200/index.php/api/Private_api/signup', 
     formData)
     .then(data => {
       Alert.alert(data.status); // JSON data parsed by `data.json()` call
@@ -340,7 +340,7 @@ const createFormData = (photo, body) => {
   };
 
 
-async function postData(url, data) {
+async function postData(url: any, data:any) {
     // Default options are marked with *
     const response = await fetch(url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.

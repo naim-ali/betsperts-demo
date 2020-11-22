@@ -68,9 +68,8 @@ switch (ENVIRONMENT)
 	case 'development':
 		$db['default'] = array(
 			'dsn'	=> 'mysql:host=localhost;dbname=betspert',
-			'hostname' => 'mysql:host=localhost',
 			'username' => 'root',
-			'password' => 'root',
+			'password' => 'i-0110036a4557b65c2',
 			'database' => 'betspert',
 			'dbdriver' => 'pdo',
 			'dbprefix' => '',
@@ -95,7 +94,7 @@ switch (ENVIRONMENT)
 		$db['default'] = array(
 			'dsn'	=> 'mysql:host=localhost;dbname=betspert',
 			'username' => 'root',
-			'password' => 'root',
+			'password' => 'i-0110036a4557b65c2',
 			'database' => 'betspert',
 			'dbdriver' => 'pdo',
 			'dbprefix' => '',
